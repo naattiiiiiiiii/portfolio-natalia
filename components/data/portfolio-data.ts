@@ -178,7 +178,7 @@ export const projects = [
     subtitle: "Agentes de IA con LangChain y Ollama",
     description: "Colección de agentes de IA: un asistente de limpieza de archivos con Ollama/Llama 3.2 local, y un agente de viajes con LangChain + LangGraph usando Groq. Demuestra tool-augmented LLMs y patrón ReAct.",
     tech: ["Python", "LangChain", "LangGraph", "Ollama", "Groq"],
-    github: "https://github.com/ncuahid/ai-agents-langchain",
+    github: "https://github.com/naattiiiiiiiii/ai-agents-langchain",
     featured: false,
   },
   {
