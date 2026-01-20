@@ -9,7 +9,6 @@ export const personalInfo = {
   github: "https://github.com/naattiiiiiiiii/",
   linkedin: "https://www.linkedin.com/in/natalia-cuadrado-hidalgo-213482358/",
   quote: "Construyendo puentes entre desarrollo web e inteligencia artificial",
-  harmonyApp: "https://www.theharmonyapp.es",
 }
 
 // Navegación
@@ -25,7 +24,7 @@ export const navigation = [
 // Estadísticas
 export const stats = [
   { number: "2+", label: "Años de experiencia" },
-  { number: "6+", label: "Proyectos completados" },
+  { number: "5+", label: "Proyectos completados" },
   { number: "3", label: "Certificaciones" },
   { number: "C2", label: "Nivel de Inglés" },
 ]
@@ -74,14 +73,13 @@ export const skills = {
 // Experiencia laboral
 export const experiences = [
   {
-    company: "Harmony App",
-    role: "Fundadora & Full Stack Developer",
-    period: "2024 - Presente",
-    type: "Proyecto propio",
-    description: "Aplicación de bienestar laboral y prevención del burnout. Desarrollo completo del producto desde la ideación hasta el lanzamiento, incluyendo diseño UX/UI, desarrollo frontend/backend e integración de IA.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "IA Generativa"],
-    link: "https://www.theharmonyapp.es",
-    featured: true,
+    company: "Utilia.ai",
+    role: "Full Stack & AI Developer",
+    period: "2025 - Presente",
+    type: "Prácticas",
+    description: "Desarrollo web full stack combinado con integración de soluciones de inteligencia artificial en entorno startup.",
+    tech: ["Next.js", "TypeScript", "Python", "IA"],
+    featured: false,
   },
   {
     company: "Marketec360",
@@ -118,6 +116,16 @@ export const education = [
     ]
   },
   {
+    title: "Curso Superior Diginnova",
+    institution: "FULP - Fundación Universitaria de Las Palmas",
+    period: "2025",
+    status: "En curso",
+    highlights: [
+      "Transformación Digital",
+      "Competencias Digitales Avanzadas",
+    ]
+  },
+  {
     title: "Grado Superior en Desarrollo de Aplicaciones Web",
     institution: "ILERNA FP",
     period: "2023 - 2025",
@@ -149,21 +157,6 @@ export const certifications = [
 
 // Proyectos
 export const projects = [
-  {
-    title: "Harmony App",
-    subtitle: "Bienestar Laboral y Prevención del Burnout",
-    description: "Plataforma completa de bienestar emocional para empresas. Incluye IA predictiva basada en neurociencia, técnicas de respiración guiadas, chat con asistente de IA (Aria), y seguimiento de progreso semanal.",
-    role: "Fundadora & Desarrolladora Principal",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "IA Generativa", "Vercel"],
-    link: "https://www.theharmonyapp.es",
-    github: "https://github.com/TheharmonyApp/",
-    featured: true,
-    highlights: [
-      "IA basada en neurociencia",
-      "Inventario Maslach integrado",
-      "Conforme RGPD",
-    ]
-  },
   {
     title: "StickerAI",
     subtitle: "Generador de Stickers con IA",
@@ -227,8 +220,8 @@ export const footerSections = {
   projects: {
     title: "03 — Proyectos",
     links: [
-      { label: "Harmony App", href: "https://www.theharmonyapp.es" },
       { label: "StickerAI", href: "https://sticker-ai-natalia-s-projects-29dfd446.vercel.app" },
+      { label: "AI Agents", href: "https://github.com/naattiiiiiiiii/ai-agents-langchain" },
     ]
   }
 }

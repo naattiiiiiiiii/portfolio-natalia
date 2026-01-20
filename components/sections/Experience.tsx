@@ -1,4 +1,3 @@
-import { ArrowUpRight } from 'lucide-react'
 import { experiences } from '@/components/data/portfolio-data'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Badge from '@/components/ui/Badge'
@@ -75,22 +74,6 @@ export default function Experience() {
                       </span>
                     ))}
                   </div>
-
-                  {exp.link && (
-                    <a
-                      href={exp.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`
-                        inline-flex items-center gap-2 mt-6 text-sm font-medium
-                        ${exp.featured ? 'text-white hover:text-white/80' : 'text-harmony-green hover:text-harmony-green-light'}
-                        transition-colors
-                      `}
-                    >
-                      Ver proyecto
-                      <ArrowUpRight className="w-4 h-4" />
-                    </a>
-                  )}
                 </div>
               </div>
             </div>

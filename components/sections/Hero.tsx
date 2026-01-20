@@ -13,7 +13,7 @@ export default function Hero() {
           {/* Content */}
           <div className="animate-fade-in-up">
             <Badge variant="featured" className="mb-8">
-              Fundadora de Harmony App
+              Full Stack & AI Developer
             </Badge>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-harmony-navy leading-[1.1] mb-6">

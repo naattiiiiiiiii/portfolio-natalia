@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { twMerge } from 'tailwind-merge'
+import clsx from 'clsx'
 
 interface ButtonProps {
   children: React.ReactNode
@@ -31,14 +33,16 @@ export default function Button({
     lg: 'px-8 py-4 text-lg',
   }
 
-  const baseStyles = `
-    inline-flex items-center justify-center gap-2
-    rounded-full font-medium
-    transition-all duration-300
-    ${variants[variant]}
-    ${sizes[size]}
-    ${className}
-  `
+  const baseStyles = twMerge(
+    clsx(
+      'inline-flex items-center justify-center gap-2',
+      'rounded-full font-medium',
+      'transition-all duration-300',
+      variants[variant],
+      sizes[size],
+      className
+    )
+  )
 
   if (href) {
     if (external) {
