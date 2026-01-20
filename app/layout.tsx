@@ -8,21 +8,40 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Natalia Cuadrado | Desarrolladora Full Stack',
-  description: 'Portfolio de Natalia Cuadrado - Desarrolladora Full Stack especializada en React, Next.js, Node.js, TypeScript y Python. Creando soluciones web modernas e innovadoras.',
-  keywords: ['desarrolladora', 'full stack', 'react', 'next.js', 'node.js', 'typescript', 'python', 'portfolio', 'web developer'],
+  title: 'Natalia Cuadrado | Full Stack Developer & AI Specialist',
+  description: 'Portfolio de Natalia Cuadrado - Ingeniera de Software con perfil híbrido: Full Stack (Next.js, React, TypeScript) + IA y Big Data. Fundadora de Harmony App. Especializada en integración de LLMs y arquitecturas RAG.',
+  keywords: [
+    'full stack developer',
+    'AI specialist',
+    'next.js',
+    'react',
+    'typescript',
+    'python',
+    'machine learning',
+    'big data',
+    'harmony app',
+    'LLM integration',
+    'RAG architecture',
+    'desarrolladora',
+    'inteligencia artificial',
+  ],
   authors: [{ name: 'Natalia Cuadrado' }],
   creator: 'Natalia Cuadrado',
   openGraph: {
-    title: 'Natalia Cuadrado | Desarrolladora Full Stack',
-    description: 'Portfolio de Natalia Cuadrado - Desarrolladora Full Stack especializada en React, Next.js, Node.js y Python.',
+    title: 'Natalia Cuadrado | Full Stack Developer & AI Specialist',
+    description: 'Ingeniera de Software con perfil híbrido: Full Stack + IA. Fundadora de Harmony App.',
     type: 'website',
     locale: 'es_ES',
+    siteName: 'Natalia Cuadrado Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Natalia Cuadrado | Desarrolladora Full Stack',
-    description: 'Portfolio de Natalia Cuadrado - Desarrolladora Full Stack',
+    title: 'Natalia Cuadrado | Full Stack Developer & AI Specialist',
+    description: 'Ingeniera de Software con perfil híbrido: Full Stack + IA. Fundadora de Harmony App.',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 

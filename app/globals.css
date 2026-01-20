@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --foreground: #1a1a2e;
-  --background: #fafafa;
+  --harmony-cream: #F9F7F4;
+  --harmony-cream-dark: #F0EDE8;
+  --harmony-navy: #1a1a2e;
+  --harmony-navy-light: #2d2d4a;
+  --harmony-navy-muted: #6b6b7b;
+  --harmony-green: #4A7C59;
+  --harmony-green-light: #5B8D6A;
+  --harmony-green-pale: #E8F0EB;
 }
 
 html {
@@ -12,30 +18,80 @@ html {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--harmony-navy);
+  background: var(--harmony-cream);
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Harmony style */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--harmony-cream-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+  background: var(--harmony-navy-muted);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1a1;
+  background: var(--harmony-navy-light);
 }
 
-/* Selection */
+/* Selection - Harmony green */
 ::selection {
-  background: #6366f1;
+  background: var(--harmony-green);
   color: white;
+}
+
+/* Section numbering style */
+.section-number {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--harmony-navy-muted);
+}
+
+/* Quote block style */
+.quote-block {
+  border-left: 3px solid var(--harmony-green);
+  padding-left: 1.5rem;
+  font-style: italic;
+  color: var(--harmony-navy-light);
+}
+
+/* Smooth transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--harmony-green);
+  outline-offset: 2px;
+}
+
+/* Link hover underline animation */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--harmony-navy);
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
 }
