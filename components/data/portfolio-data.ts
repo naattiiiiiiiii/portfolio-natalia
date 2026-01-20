@@ -24,7 +24,7 @@ export const navigation = [
 // Estadísticas
 export const stats = [
   { number: "2+", label: "Años de experiencia" },
-  { number: "5+", label: "Proyectos completados" },
+  { number: "6+", label: "Proyectos completados" },
   { number: "3", label: "Certificaciones" },
   { number: "C2", label: "Nivel de Inglés" },
 ]
@@ -157,6 +157,14 @@ export const certifications = [
 
 // Proyectos
 export const projects = [
+  {
+    title: "Harmony App",
+    subtitle: "Bienestar Laboral y Prevención del Burnout",
+    description: "Plataforma de bienestar emocional para empresas. Incluye IA predictiva basada en neurociencia, técnicas de respiración guiadas, chat con asistente de IA, y seguimiento de progreso semanal.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "IA Generativa", "Vercel"],
+    featured: true,
+    status: "En desarrollo",
+  },
   {
     title: "StickerAI",
     subtitle: "Generador de Stickers con IA",

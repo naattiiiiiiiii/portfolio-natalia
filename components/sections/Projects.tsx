@@ -1,8 +1,12 @@
 import { ArrowUpRight, Github } from 'lucide-react'
 import { projects } from '@/components/data/portfolio-data'
 import SectionHeader from '@/components/ui/SectionHeader'
+import Badge from '@/components/ui/Badge'
 
 export default function Projects() {
+  const featuredProject = projects.find(p => p.featured)
+  const otherProjects = projects.filter(p => !p.featured)
+
   return (
     <section id="projects" className="py-24 px-6 lg:px-8 bg-harmony-cream-dark">
       <div className="max-w-7xl mx-auto">
@@ -12,9 +16,46 @@ export default function Projects() {
           subtitle="Trabajo destacado"
         />
 
-        {/* All Projects Grid */}
+        {/* Featured Project - Harmony App */}
+        {featuredProject && (
+          <div className="mb-16">
+            <div className="p-8 lg:p-12 bg-harmony-navy rounded-2xl text-white">
+              <div className="grid lg:grid-cols-2 gap-12">
+                <div>
+                  <Badge variant="outline" className="border-white/20 text-white/80 mb-6">
+                    {featuredProject.status || 'Proyecto Destacado'}
+                  </Badge>
+                  <h3 className="text-3xl lg:text-4xl font-light mb-2">
+                    {featuredProject.title}
+                  </h3>
+                  <p className="text-white/60 mb-6">
+                    {featuredProject.subtitle}
+                  </p>
+                  <p className="text-white/80 leading-relaxed">
+                    {featuredProject.description}
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-center">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {featuredProject.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white/70"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Other Projects */}
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
+          {otherProjects.map((project, index) => (
             <div
               key={project.title}
               className="group p-6 bg-white rounded-2xl border border-harmony-navy/5 hover:border-harmony-green/30 transition-all duration-300"
@@ -22,7 +63,7 @@ export default function Projects() {
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <span className="text-xs text-harmony-navy-muted">
-                    {String(index + 1).padStart(2, '0')}
+                    {String(index + 2).padStart(2, '0')}
                   </span>
                   <h3 className="text-xl font-medium text-harmony-navy mt-1">
                     {project.title}
