@@ -48,10 +48,6 @@ export default function Hero() {
                 <span className="block text-harmony-navy font-medium">Especialización</span>
                 Full Stack + IA
               </div>
-              <div>
-                <span className="block text-harmony-navy font-medium">Disponibilidad</span>
-                Inmediata
-              </div>
             </div>
           </div>
 

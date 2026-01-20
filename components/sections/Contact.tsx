@@ -74,20 +74,10 @@ export default function Contact() {
           <div className="flex items-center justify-center">
             <div className="p-8 bg-harmony-cream-dark rounded-2xl max-w-md w-full">
               <h3 className="text-sm tracking-wider text-harmony-navy-muted uppercase mb-6">
-                Disponibilidad actual
+                Información
               </h3>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-3 h-3 bg-harmony-green rounded-full mt-1.5 animate-pulse-subtle" />
-                  <div>
-                    <h4 className="font-medium text-harmony-navy">Disponibilidad inmediata</h4>
-                    <p className="text-sm text-harmony-navy-muted">
-                      Lista para incorporarme a nuevos retos
-                    </p>
-                  </div>
-                </div>
-
                 <div className="flex items-start gap-4">
                   <div className="w-3 h-3 bg-harmony-green rounded-full mt-1.5" />
                   <div>
