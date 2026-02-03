@@ -77,8 +77,8 @@ export const experiences = [
     role: "Developer in AI Solutions",
     period: "Nov 2025 - Presente",
     type: "Prácticas",
-    description: "Construcción de experiencias web que integran IA aplicada y automatización en entorno startup.",
-    tech: ["Next.js", "TypeScript", "Python", "IA Generativa"],
+    description: "Desarrollo de soluciones full stack con integración de IA generativa en entorno startup. Construcción de interfaces web modernas con Next.js y TypeScript, implementación de pipelines de procesamiento con Python, y despliegue de modelos de lenguaje para automatización de procesos empresariales. Colaboración directa con el equipo de producto en metodologías ágiles.",
+    tech: ["Next.js", "TypeScript", "Python", "IA Generativa", "LangChain", "APIs REST"],
     featured: false,
   },
   {
@@ -86,8 +86,8 @@ export const experiences = [
     role: "Web Developer",
     period: "May 2025 - Jul 2025",
     type: "Contrato temporal",
-    description: "Gestión técnica integral de proyectos digitales. Implementación de soluciones personalizadas y optimización técnica (Performance/SEO).",
-    tech: ["WordPress", "APIs", "SEO Técnico", "Optimización"],
+    description: "Gestión técnica integral de proyectos web para clientes del sector empresarial. Desarrollo de soluciones personalizadas en WordPress con integración de APIs de terceros. Optimización de rendimiento web logrando mejoras de +40% en Core Web Vitals. Implementación de estrategias SEO técnico y auditorías de accesibilidad.",
+    tech: ["WordPress", "PHP", "APIs REST", "SEO Técnico", "Google Analytics", "Optimización Web"],
     featured: false,
   },
   {
@@ -95,8 +95,8 @@ export const experiences = [
     role: "Frontend Developer",
     period: "Ene 2025 - Abr 2025",
     type: "Prácticas",
-    description: "Desarrollo de aplicaciones web escalables con Next.js y TypeScript. Diseño de esquemas de bases de datos con Prisma y MySQL.",
-    tech: ["Next.js", "TypeScript", "Prisma", "MySQL"],
+    description: "Desarrollo de aplicaciones web escalables utilizando arquitectura moderna con Next.js 14 y TypeScript. Diseño e implementación de esquemas de bases de datos relacionales con Prisma ORM y MySQL. Creación de componentes reutilizables, integración de sistemas de autenticación y participación en code reviews siguiendo buenas prácticas de desarrollo.",
+    tech: ["Next.js", "TypeScript", "React", "Prisma", "MySQL", "Tailwind CSS", "Git"],
     featured: false,
   },
 ]
@@ -116,7 +116,7 @@ export const education = [
     ]
   },
   {
-    title: "Curso Superior en Python y Data Science",
+    title: "Máster Especialización en Python",
     institution: "CIFPD de La Rioja",
     period: "2025 - 2026",
     status: "En curso",
@@ -128,7 +128,7 @@ export const education = [
     ]
   },
   {
-    title: "Programa Diginnova",
+    title: "Curso Superior Diginnova",
     institution: "FULP - Fundación Universitaria de Las Palmas",
     period: "2025",
     status: "En curso",
