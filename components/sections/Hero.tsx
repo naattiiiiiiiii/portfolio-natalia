@@ -1,9 +1,32 @@
+'use client'
+
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import { personalInfo } from '@/components/data/portfolio-data'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
-import QuoteBlock from '@/components/ui/QuoteBlock'
+
+// Dynamic imports for React Bits components (SSR disabled)
+const SplitText = dynamic(() => import('@/components/react-bits/SplitText'), {
+  ssr: false,
+  loading: () => <span className="text-5xl sm:text-6xl lg:text-7xl font-light text-harmony-navy leading-[1.1]">{personalInfo.name}</span>
+})
+
+const DecryptedText = dynamic(() => import('@/components/react-bits/DecryptedText'), {
+  ssr: false,
+  loading: () => <span className="text-xl sm:text-2xl text-harmony-navy-muted font-light">{personalInfo.title}</span>
+})
+
+const BlurText = dynamic(() => import('@/components/react-bits/BlurText'), {
+  ssr: false,
+  loading: () => <span>{personalInfo.quote}</span>
+})
+
+const TiltedCard = dynamic(() => import('@/components/react-bits/TiltedCard'), {
+  ssr: false,
+  loading: () => null
+})
 
 export default function Hero() {
   return (
@@ -11,22 +34,34 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
-          <div className="animate-fade-in-up">
+          <div>
             <Badge variant="featured" className="mb-8">
               Full Stack & AI Developer
             </Badge>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-harmony-navy leading-[1.1] mb-6">
-              {personalInfo.name}
+              <SplitText
+                text={personalInfo.name}
+                delay={50}
+              />
             </h1>
 
             <p className="text-xl sm:text-2xl text-harmony-navy-muted font-light mb-8">
-              {personalInfo.title}
+              <DecryptedText
+                text={personalInfo.title}
+                speed={30}
+              />
             </p>
 
-            <QuoteBlock className="mb-10 max-w-lg">
-              {personalInfo.quote}
-            </QuoteBlock>
+            <div className="mb-10 max-w-lg pl-4 border-l-2 border-harmony-green/30">
+              <p className="text-harmony-navy-muted italic">
+                <BlurText
+                  text={personalInfo.quote}
+                  delay={800}
+                  duration={1}
+                />
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <Button href="#projects">
@@ -51,18 +86,20 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Photo */}
-          <div className="flex justify-center lg:justify-end animate-fade-in">
+          {/* Photo with TiltedCard effect */}
+          <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-96 sm:w-96 sm:h-[480px] relative overflow-hidden rounded-2xl">
-                <Image
-                  src="/natalia.jpg"
-                  alt="Natalia Cuadrado"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
+              <TiltedCard className="w-80 h-96 sm:w-96 sm:h-[480px]" tiltAmount={8}>
+                <div className="w-full h-full relative overflow-hidden rounded-2xl">
+                  <Image
+                    src="/natalia.jpg"
+                    alt="Natalia Cuadrado"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </TiltedCard>
               {/* Decorative elements */}
               <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-harmony-green/10 rounded-2xl -z-10" />
               <div className="absolute -top-4 -right-4 w-32 h-32 bg-harmony-green/5 rounded-full -z-10" />

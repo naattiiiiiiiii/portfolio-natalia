@@ -74,29 +74,29 @@ export const skills = {
 export const experiences = [
   {
     company: "Utilia.ai",
-    role: "Full Stack & AI Developer",
-    period: "2025 - Presente",
+    role: "Developer in AI Solutions",
+    period: "Nov 2025 - Presente",
     type: "Prácticas",
-    description: "Desarrollo web full stack combinado con integración de soluciones de inteligencia artificial en entorno startup.",
-    tech: ["Next.js", "TypeScript", "Python", "IA"],
+    description: "Construcción de experiencias web que integran IA aplicada y automatización en entorno startup.",
+    tech: ["Next.js", "TypeScript", "Python", "IA Generativa"],
+    featured: false,
+  },
+  {
+    company: "Brío Marketing Estudio",
+    role: "Web Developer",
+    period: "May 2025 - Jul 2025",
+    type: "Contrato temporal",
+    description: "Gestión técnica integral de proyectos digitales. Implementación de soluciones personalizadas y optimización técnica (Performance/SEO).",
+    tech: ["WordPress", "APIs", "SEO Técnico", "Optimización"],
     featured: false,
   },
   {
     company: "Marketec360",
-    role: "Junior Full Stack Developer",
-    period: "2025",
-    type: "Prácticas (3 meses)",
-    description: "Ingeniería de datos con implementación de capa de acceso y persistencia con Prisma y MySQL. Aplicación de principios de código tipado (TypeScript) y metodologías ágiles.",
-    tech: ["TypeScript", "Prisma", "MySQL", "Node.js"],
-    featured: false,
-  },
-  {
-    company: "Brio Marketing Estudio",
-    role: "Consultora Técnica Web",
-    period: "2024",
-    type: "Contrato",
-    description: "Optimización de sistemas y escalabilidad de plataformas web. Consultoría técnica traduciendo necesidades de negocio en soluciones digitales. Integración de APIs de terceros.",
-    tech: ["WordPress", "APIs", "SEO Técnico", "Optimización"],
+    role: "Frontend Developer",
+    period: "Ene 2025 - Abr 2025",
+    type: "Prácticas",
+    description: "Desarrollo de aplicaciones web escalables con Next.js y TypeScript. Diseño de esquemas de bases de datos con Prisma y MySQL.",
+    tech: ["Next.js", "TypeScript", "Prisma", "MySQL"],
     featured: false,
   },
 ]
@@ -104,22 +104,36 @@ export const experiences = [
 // Educación
 export const education = [
   {
-    title: "Doble Máster en Inteligencia Artificial, Big Data y Python",
-    institution: "CIFP Zonzamas & CIFPD de La Rioja",
+    title: "Máster en Inteligencia Artificial y Big Data",
+    institution: "CIFP Zonzamas",
     period: "2025 - 2026",
     status: "En curso",
+    modality: "Presencial",
     highlights: [
-      "Big Data: Spark, Hadoop, NoSQL",
-      "Deep Learning: CNN/DNN, NLP",
-      "IA Generativa y Chatbots",
-      "Sistemas de Recomendación",
+      "Deep Learning: CNN/DNN",
+      "NLP",
+      "Big Data: Spark, Hadoop",
     ]
   },
   {
-    title: "Curso Superior Diginnova",
+    title: "Curso Superior en Python y Data Science",
+    institution: "CIFPD de La Rioja",
+    period: "2025 - 2026",
+    status: "En curso",
+    modality: "Online",
+    highlights: [
+      "Python avanzado",
+      "Análisis de datos",
+      "Machine Learning",
+    ]
+  },
+  {
+    title: "Programa Diginnova",
     institution: "FULP - Fundación Universitaria de Las Palmas",
     period: "2025",
     status: "En curso",
+    modality: "Presencial",
+    link: "https://www.fulp.es/programas/diginnova/beneficiarios/",
     highlights: [
       "Transformación Digital",
       "Competencias Digitales Avanzadas",
@@ -158,11 +172,20 @@ export const certifications = [
 // Proyectos
 export const projects = [
   {
+    title: "AI Business Analyst Agent",
+    subtitle: "Agente Conversacional Proactivo - TFM",
+    description: "Agente de IA que analiza modelos de negocio y evalúa viabilidad de proyectos de IA mediante diálogo estratégico. Desarrollado en colaboración con Socaity.ai.",
+    tech: ["Python", "LangChain", "FastAPI", "Vue.js", "Socaity SDK"],
+    featured: true,
+    status: "En desarrollo",
+    collaboration: "Socaity.ai",
+  },
+  {
     title: "Harmony App",
     subtitle: "Bienestar Laboral y Prevención del Burnout",
     description: "Plataforma de bienestar emocional para empresas. Incluye IA predictiva basada en neurociencia, técnicas de respiración guiadas, chat con asistente de IA, y seguimiento de progreso semanal.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "IA Generativa", "Vercel"],
-    featured: true,
+    featured: false,
     status: "En desarrollo",
   },
   {
