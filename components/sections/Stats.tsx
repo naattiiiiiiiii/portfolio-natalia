@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import { stats } from '@/components/data/portfolio-data'
+import { useLanguage } from '@/components/context/LanguageContext'
 
 const CountUp = dynamic(() => import('@/components/react-bits/CountUp'), {
   ssr: false,
@@ -40,6 +41,7 @@ function parseStatNumber(value: string): { number: number | null; prefix: string
 }
 
 export default function Stats() {
+  const { lang } = useLanguage()
   return (
     <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-harmony-cream-dark">
       <div className="max-w-7xl mx-auto">
@@ -49,7 +51,7 @@ export default function Stats() {
 
             return (
               <ScrollReveal
-                key={stat.label}
+                key={index}
                 delay={index * 0.15}
                 direction="up"
               >
@@ -75,7 +77,7 @@ export default function Stats() {
                   </div>
                   <FadeInScale delay={0.2}>
                     <p className="mt-1 sm:mt-2 text-xs sm:text-sm lg:text-base text-harmony-navy-muted group-hover:text-harmony-navy transition-colors">
-                      {stat.label}
+                      {stat.label[lang]}
                     </p>
                   </FadeInScale>
                 </div>

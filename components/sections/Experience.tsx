@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { experiences } from '@/components/data/portfolio-data'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Badge from '@/components/ui/Badge'
+import { useLanguage } from '@/components/context/LanguageContext'
 
 const SpotlightCard = dynamic(() => import('@/components/react-bits/SpotlightCard'), {
   ssr: false,
@@ -22,13 +23,14 @@ const FadeInScale = dynamic(() => import('@/components/react-bits/FadeInScale'),
 })
 
 export default function Experience() {
+  const { lang } = useLanguage()
   return (
     <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-harmony-cream-dark">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           number="03"
-          title="Experiencia"
-          subtitle="Trayectoria profesional"
+          title={lang === 'es' ? 'Experiencia' : 'Experience'}
+          subtitle={lang === 'es' ? 'Trayectoria profesional' : 'Professional journey'}
         />
 
         <div className="space-y-6 sm:space-y-8">
@@ -71,18 +73,18 @@ export default function Experience() {
                           </GradientText>
                         </h3>
                         <p className={`text-sm sm:text-base ${exp.featured ? 'text-white/60' : 'text-harmony-navy-muted'}`}>
-                          {exp.role}
+                          {exp.role[lang]}
                         </p>
                         <div className="flex flex-wrap items-center gap-2 mt-2">
                           <span className={`text-xs sm:text-sm ${exp.featured ? 'text-white/40' : 'text-harmony-navy-muted'}`}>
-                            {exp.period}
+                            {typeof exp.period === 'string' ? exp.period : exp.period[lang]}
                           </span>
                           {exp.type && (
                             <Badge
                               variant={exp.featured ? 'outline' : 'default'}
                               className={`text-xs ${exp.featured ? 'border-white/20 text-white/60' : ''}`}
                             >
-                              {exp.type}
+                              {exp.type[lang]}
                             </Badge>
                           )}
                         </div>
@@ -96,7 +98,7 @@ export default function Experience() {
                       text-sm sm:text-base leading-relaxed mb-4 sm:mb-6
                       ${exp.featured ? 'text-white/80' : 'text-harmony-navy-muted'}
                     `}>
-                      {exp.description}
+                      {exp.description[lang]}
                     </p>
 
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">

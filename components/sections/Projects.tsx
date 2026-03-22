@@ -1,10 +1,11 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { ArrowUpRight, Github, Sparkles } from 'lucide-react'
-import { projects } from '@/components/data/portfolio-data'
+import { ArrowUpRight, Github, Sparkles, ExternalLink } from 'lucide-react'
+import { projects, type B } from '@/components/data/portfolio-data'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Badge from '@/components/ui/Badge'
+import { useLanguage } from '@/components/context/LanguageContext'
 
 const TiltedCard = dynamic(() => import('@/components/react-bits/TiltedCard'), {
   ssr: false,
@@ -27,6 +28,7 @@ const Magnetic = dynamic(() => import('@/components/react-bits/Magnetic'), {
 })
 
 export default function Projects() {
+  const { lang } = useLanguage()
   const featuredProject = projects.find(p => p.featured)
   const otherProjects = projects.filter(p => !p.featured)
 
@@ -35,8 +37,8 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           number="05"
-          title="Proyectos"
-          subtitle="Trabajo destacado"
+          title={lang === 'es' ? 'Proyectos' : 'Projects'}
+          subtitle={lang === 'es' ? 'Trabajo destacado' : 'Featured work'}
         />
 
         {/* Featured Project - TFM with TiltedCard */}
@@ -54,7 +56,7 @@ export default function Projects() {
                       <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                         <Badge variant="outline" className="border-white/20 text-white/80 text-xs sm:text-sm">
                           <Sparkles className="w-3 h-3 mr-1" />
-                          {featuredProject.status || 'Proyecto Destacado'}
+                          {(featuredProject as {status?: B}).status?.[lang] ?? (lang === 'es' ? 'Proyecto Destacado' : 'Featured Project')}
                         </Badge>
                         {'collaboration' in featuredProject && featuredProject.collaboration && (
                           <Badge variant="outline" className="border-harmony-green/40 text-harmony-green-light text-xs sm:text-sm">
@@ -72,15 +74,29 @@ export default function Projects() {
 
                     <FadeInScale delay={0.3}>
                       <p className="text-white/60 mb-4 sm:mb-6 text-sm sm:text-base">
-                        {featuredProject.subtitle}
+                        {featuredProject.subtitle[lang]}
                       </p>
                     </FadeInScale>
 
                     <FadeInScale delay={0.4}>
                       <p className="text-white/80 leading-relaxed text-sm sm:text-base">
-                        {featuredProject.description}
+                        {featuredProject.description[lang]}
                       </p>
                     </FadeInScale>
+
+                    {'link' in featuredProject && featuredProject.link && (
+                      <FadeInScale delay={0.5}>
+                        <a
+                          href={featuredProject.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 mt-6 px-4 py-2 bg-harmony-green text-white rounded-full text-sm hover:bg-harmony-green-light transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          {lang === 'es' ? 'Ver demo' : 'Live demo'}
+                        </a>
+                      </FadeInScale>
+                    )}
                   </div>
 
                   <div className="flex items-center justify-center">
@@ -125,7 +141,7 @@ export default function Projects() {
                       {project.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-harmony-navy-muted">
-                      {project.subtitle}
+                      {project.subtitle[lang]}
                     </p>
                   </div>
                   {project.github && (
@@ -143,7 +159,7 @@ export default function Projects() {
                 </div>
 
                 <p className="text-harmony-navy-muted text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
-                  {project.description}
+                  {project.description[lang]}
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -164,7 +180,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 mt-3 sm:mt-4 text-xs sm:text-sm text-harmony-green hover:text-harmony-green-light transition-colors group/link"
                     >
-                      Ver demo
+                      {lang === 'es' ? 'Ver demo' : 'Live demo'}
                       <ArrowUpRight className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                     </a>
                   </FadeInScale>

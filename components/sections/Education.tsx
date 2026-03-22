@@ -5,6 +5,7 @@ import { GraduationCap, Award, ExternalLink, MapPin, Monitor } from 'lucide-reac
 import { education, certifications } from '@/components/data/portfolio-data'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Badge from '@/components/ui/Badge'
+import { useLanguage } from '@/components/context/LanguageContext'
 
 const SpotlightCard = dynamic(() => import('@/components/react-bits/SpotlightCard'), {
   ssr: false,
@@ -23,13 +24,14 @@ const TiltedCard = dynamic(() => import('@/components/react-bits/TiltedCard'), {
 })
 
 export default function Education() {
+  const { lang } = useLanguage()
   return (
     <section id="education" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-harmony-cream">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           number="04"
-          title="Educación"
-          subtitle="Formación académica"
+          title={lang === 'es' ? 'Educación' : 'Education'}
+          subtitle={lang === 'es' ? 'Formación académica' : 'Academic background'}
         />
 
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
@@ -37,7 +39,7 @@ export default function Education() {
           <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             {education.map((edu, index) => (
               <ScrollReveal
-                key={edu.title}
+                key={index}
                 delay={index * 0.12}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               >
@@ -54,22 +56,22 @@ export default function Education() {
                     <div className="flex-1 w-full">
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                         <h3 className="text-base sm:text-lg font-medium text-harmony-navy leading-tight">
-                          {edu.title}
+                          {edu.title[lang]}
                         </h3>
                         <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                          {edu.status === 'En curso' && (
+                          {edu.status[lang] === (lang === 'es' ? 'En curso' : 'In progress') && (
                             <Badge variant="featured" className="text-[10px] sm:text-xs">
-                              En curso
+                              {lang === 'es' ? 'En curso' : 'In progress'}
                             </Badge>
                           )}
                           {'modality' in edu && edu.modality && (
                             <Badge variant="default" className="text-[10px] sm:text-xs flex items-center gap-1">
-                              {edu.modality === 'Presencial' ? (
+                              {(edu.modality[lang] === 'Presencial' || edu.modality[lang] === 'On-site') ? (
                                 <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                               ) : (
                                 <Monitor className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                               )}
-                              {edu.modality}
+                              {edu.modality[lang]}
                             </Badge>
                           )}
                         </div>
@@ -95,11 +97,11 @@ export default function Education() {
 
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
                         {edu.highlights.map((highlight, hIndex) => (
-                          <FadeInScale key={highlight} delay={0.2 + hIndex * 0.08}>
+                          <FadeInScale key={hIndex} delay={0.2 + hIndex * 0.08}>
                             <li className="flex items-start gap-2 text-xs sm:text-sm text-harmony-navy group">
                               <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-harmony-green rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover:scale-150 transition-transform" />
                               <span className="group-hover:text-harmony-green transition-colors">
-                                {highlight}
+                                {highlight[lang]}
                               </span>
                             </li>
                           </FadeInScale>

@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { Code2, Brain, Wrench } from 'lucide-react'
 import { skills } from '@/components/data/portfolio-data'
 import SectionHeader from '@/components/ui/SectionHeader'
+import { useLanguage } from '@/components/context/LanguageContext'
 
 const SpotlightCard = dynamic(() => import('@/components/react-bits/SpotlightCard'), {
   ssr: false,
@@ -26,18 +27,22 @@ const icons = {
 // Skill level to percentage
 const levelToPercent: Record<string, number> = {
   'Básico': 40,
+  'Basic': 40,
   'Intermedio': 65,
+  'Intermediate': 65,
   'Avanzado': 90,
+  'Advanced': 90,
 }
 
 export default function Skills() {
+  const { lang } = useLanguage()
   return (
     <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-harmony-cream">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           number="02"
           title="Skills"
-          subtitle="Stack tecnológico"
+          subtitle={lang === 'es' ? 'Stack tecnológico' : 'Tech stack'}
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -60,10 +65,10 @@ export default function Skills() {
                       </div>
                       <div>
                         <h3 className="text-lg sm:text-xl font-medium text-harmony-navy">
-                          {skill.title}
+                          {skill.title[lang]}
                         </h3>
                         <p className="text-xs sm:text-sm text-harmony-navy-muted">
-                          {skill.description}
+                          {skill.description[lang]}
                         </p>
                       </div>
                     </div>
@@ -71,7 +76,7 @@ export default function Skills() {
 
                   <ul className="space-y-3 sm:space-y-4">
                     {skill.items.map((item, itemIndex) => {
-                      const percent = levelToPercent[item.level] || 50
+                      const percent = levelToPercent[item.level[lang]] || 50
                       return (
                         <FadeInScale key={item.name} delay={0.15 + itemIndex * 0.08}>
                           <li className="group">
@@ -81,7 +86,7 @@ export default function Skills() {
                                 {item.name}
                               </span>
                               <span className="text-[10px] sm:text-xs text-harmony-navy-muted px-2 py-0.5 bg-harmony-cream rounded group-hover:bg-harmony-green/10 transition-colors">
-                                {item.level}
+                                {item.level[lang]}
                               </span>
                             </div>
                             {/* Progress bar */}

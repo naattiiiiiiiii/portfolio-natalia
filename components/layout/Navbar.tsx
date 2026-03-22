@@ -4,10 +4,12 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { navigation, personalInfo } from '@/components/data/portfolio-data'
+import { useLanguage } from '@/components/context/LanguageContext'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { lang, toggleLang } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,17 +44,26 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-10">
             {navigation.map((item) => (
               <a
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 className="text-sm text-harmony-navy-muted hover:text-harmony-navy transition-colors link-underline"
               >
-                {item.label}
+                {item.label[lang]}
               </a>
             ))}
           </div>
 
-          {/* Social Links - Desktop */}
+          {/* Social Links + Lang Toggle - Desktop */}
           <div className="hidden lg:flex items-center gap-6">
+            <button
+              onClick={toggleLang}
+              className="flex items-center gap-1 text-xs font-medium border border-harmony-navy/20 rounded-full px-3 py-1 text-harmony-navy-muted hover:text-harmony-navy hover:border-harmony-navy/40 transition-all"
+              aria-label="Toggle language"
+            >
+              <span className={lang === 'es' ? 'text-harmony-navy font-semibold' : ''}>ES</span>
+              <span className="text-harmony-navy/30">/</span>
+              <span className={lang === 'en' ? 'text-harmony-navy font-semibold' : ''}>EN</span>
+            </button>
             <a
               href={personalInfo.github}
               target="_blank"
@@ -71,6 +82,16 @@ export default function Navbar() {
             </a>
           </div>
 
+          {/* Lang Toggle - Mobile */}
+          <button
+            onClick={toggleLang}
+            className="lg:hidden flex items-center gap-1 text-xs font-medium border border-harmony-navy/20 rounded-full px-2.5 py-1 text-harmony-navy-muted"
+          >
+            <span className={lang === 'es' ? 'text-harmony-navy font-semibold' : ''}>ES</span>
+            <span className="text-harmony-navy/30">/</span>
+            <span className={lang === 'en' ? 'text-harmony-navy font-semibold' : ''}>EN</span>
+          </button>
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -88,12 +109,12 @@ export default function Navbar() {
           <div className="px-6 py-6 space-y-4">
             {navigation.map((item) => (
               <a
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block text-lg text-harmony-navy hover:text-harmony-green transition-colors"
               >
-                {item.label}
+                {item.label[lang]}
               </a>
             ))}
             <div className="pt-4 border-t border-harmony-cream-dark flex gap-6">

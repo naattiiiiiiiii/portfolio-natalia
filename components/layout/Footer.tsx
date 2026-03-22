@@ -1,22 +1,26 @@
+'use client'
+
 import { personalInfo, footerSections } from '@/components/data/portfolio-data'
 import Button from '@/components/ui/Button'
 import { ArrowUpRight } from 'lucide-react'
+import { useLanguage } from '@/components/context/LanguageContext'
 
 export default function Footer() {
+  const { lang } = useLanguage()
   return (
     <footer className="bg-harmony-navy text-white">
       {/* CTA Section */}
       <div className="px-6 lg:px-8 py-16 border-b border-white/10">
         <div className="max-w-7xl mx-auto">
           <p className="text-white/60 mb-4 max-w-xl">
-            ¿Buscas incorporar talento a tu equipo?
+            {lang === 'es' ? '¿Buscas incorporar talento a tu equipo?' : 'Looking for talent to join your team?'}
           </p>
           <Button
             href={`mailto:${personalInfo.email}`}
             variant="secondary"
             className="border-white/30 text-white hover:bg-white/10 hover:border-white/50"
           >
-            Contactar
+            {lang === 'es' ? 'Contactar' : 'Get in touch'}
             <ArrowUpRight className="w-4 h-4" />
           </Button>
         </div>
@@ -29,16 +33,13 @@ export default function Footer() {
             {/* Navigation */}
             <div>
               <h4 className="text-xs tracking-wider text-white/40 mb-6">
-                {footerSections.navigation.title}
+                {footerSections.navigation.title[lang]}
               </h4>
               <ul className="space-y-3">
                 {footerSections.navigation.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-white/70 hover:text-white transition-colors"
-                    >
-                      {link.label}
+                  <li key={link.href}>
+                    <a href={link.href} className="text-white/70 hover:text-white transition-colors">
+                      {link.label[lang]}
                     </a>
                   </li>
                 ))}
@@ -48,17 +49,12 @@ export default function Footer() {
             {/* Social */}
             <div>
               <h4 className="text-xs tracking-wider text-white/40 mb-6">
-                {footerSections.social.title}
+                {footerSections.social.title[lang]}
               </h4>
               <ul className="space-y-3">
                 {footerSections.social.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white/70 hover:text-white transition-colors"
-                    >
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
                       {link.label}
                     </a>
                   </li>
@@ -69,17 +65,12 @@ export default function Footer() {
             {/* Projects */}
             <div>
               <h4 className="text-xs tracking-wider text-white/40 mb-6">
-                {footerSections.projects.title}
+                {footerSections.projects.title[lang]}
               </h4>
               <ul className="space-y-3">
                 {footerSections.projects.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white/70 hover:text-white transition-colors"
-                    >
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
                       {link.label}
                     </a>
                   </li>

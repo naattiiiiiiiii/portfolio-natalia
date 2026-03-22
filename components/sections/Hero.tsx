@@ -6,6 +6,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { personalInfo } from '@/components/data/portfolio-data'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
+import { useLanguage } from '@/components/context/LanguageContext'
 
 // Dynamic imports for React Bits components (SSR disabled)
 const SplitText = dynamic(() => import('@/components/react-bits/SplitText'), {
@@ -20,7 +21,7 @@ const DecryptedText = dynamic(() => import('@/components/react-bits/DecryptedTex
 
 const BlurText = dynamic(() => import('@/components/react-bits/BlurText'), {
   ssr: false,
-  loading: () => <span>{personalInfo.quote}</span>
+  loading: () => <span></span>
 })
 
 const TiltedCard = dynamic(() => import('@/components/react-bits/TiltedCard'), {
@@ -37,6 +38,7 @@ const FadeInScale = dynamic(() => import('@/components/react-bits/FadeInScale'),
 })
 
 export default function Hero() {
+  const { lang } = useLanguage()
   return (
     <section className="min-h-screen bg-harmony-cream pt-24 sm:pt-28 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -45,7 +47,7 @@ export default function Hero() {
           <div className="order-2 lg:order-1">
             <FadeInScale delay={0}>
               <Badge variant="featured" className="mb-6 sm:mb-8">
-                Full Stack & AI Developer
+                {lang === 'es' ? 'Full Stack & AI Developer' : 'Full Stack & AI Developer'}
               </Badge>
             </FadeInScale>
 
@@ -58,7 +60,7 @@ export default function Hero() {
 
             <p className="text-lg sm:text-xl lg:text-2xl text-harmony-navy-muted font-light mb-6 sm:mb-8">
               <DecryptedText
-                text={personalInfo.title}
+                text={personalInfo.subtitle[lang]}
                 speed={30}
               />
             </p>
@@ -67,7 +69,7 @@ export default function Hero() {
               <div className="mb-8 sm:mb-10 max-w-lg pl-4 border-l-2 border-harmony-green/30">
                 <p className="text-sm sm:text-base text-harmony-navy-muted italic">
                   <BlurText
-                    text={personalInfo.quote}
+                    text={personalInfo.quote[lang]}
                     delay={800}
                     duration={1}
                   />
@@ -79,13 +81,13 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4">
                 <Magnetic strength={0.2}>
                   <Button href="#projects" className="w-full sm:w-auto justify-center">
-                    Ver proyectos
+                    {lang === 'es' ? 'Ver proyectos' : 'View projects'}
                     <ArrowUpRight className="w-4 h-4" />
                   </Button>
                 </Magnetic>
                 <Magnetic strength={0.2}>
                   <Button href="#contact" variant="secondary" className="w-full sm:w-auto justify-center">
-                    Contactar
+                    {lang === 'es' ? 'Contactar' : 'Contact'}
                   </Button>
                 </Magnetic>
               </div>
@@ -95,13 +97,19 @@ export default function Hero() {
             <FadeInScale delay={0.9}>
               <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-harmony-navy/10 flex flex-wrap gap-6 sm:gap-8 text-sm text-harmony-navy-muted">
                 <div>
-                  <span className="block text-harmony-navy font-medium text-xs sm:text-sm">Ubicación</span>
+                  <span className="block text-harmony-navy font-medium text-xs sm:text-sm">{lang === 'es' ? 'Ubicación' : 'Location'}</span>
                   <span className="text-xs sm:text-sm">{personalInfo.location}</span>
                 </div>
                 <div>
-                  <span className="block text-harmony-navy font-medium text-xs sm:text-sm">Especialización</span>
-                  <span className="text-xs sm:text-sm">Full Stack + IA</span>
+                  <span className="block text-harmony-navy font-medium text-xs sm:text-sm">{lang === 'es' ? 'Especialización' : 'Specialisation'}</span>
+                  <span className="text-xs sm:text-sm">Full Stack + AI</span>
                 </div>
+                {'availability' in personalInfo && personalInfo.availability && (
+                  <div>
+                    <span className="block text-harmony-navy font-medium text-xs sm:text-sm">{lang === 'es' ? 'Disponibilidad' : 'Availability'}</span>
+                    <span className="text-xs sm:text-sm">{personalInfo.availability}</span>
+                  </div>
+                )}
               </div>
             </FadeInScale>
           </div>
