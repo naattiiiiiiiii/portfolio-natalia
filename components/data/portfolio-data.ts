@@ -177,7 +177,7 @@ export const education = [
     title: { es: "Máster en Inteligencia Artificial y Big Data", en: "Master's in Artificial Intelligence & Big Data" } as B,
     institution: "CIFP Zonzamas",
     period: "2025 - 2026",
-    status: { es: "En curso", en: "In progress" } as B,
+    status: { es: "Completado", en: "Completed" } as B,
     modality: { es: "Presencial", en: "On-site" } as B,
     highlights: [
       { es: "Deep Learning: CNN/DNN", en: "Deep Learning: CNN/DNN" } as B,
@@ -189,7 +189,7 @@ export const education = [
     title: { es: "Máster Especialización en Python", en: "Master's Specialisation in Python" } as B,
     institution: "CIFPD de La Rioja",
     period: "2025 - 2026",
-    status: { es: "En curso", en: "In progress" } as B,
+    status: { es: "Completado", en: "Completed" } as B,
     modality: { es: "Online", en: "Online" } as B,
     highlights: [
       { es: "Python avanzado", en: "Advanced Python" } as B,
