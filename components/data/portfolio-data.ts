@@ -4,9 +4,9 @@ export type B = { es: string; en: string }
 // Información personal centralizada
 export const personalInfo = {
   name: "Natalia Cuadrado",
-  title: "Full Stack Developer & AI Specialist",
-  subtitle: { es: "Ingeniera de Software con perfil híbrido", en: "Software Engineer with a hybrid profile" } as B,
-  location: "Lanzarote, Spain · Open to relocate to Australia",
+  title: "AI Engineer & Full Stack Developer",
+  subtitle: { es: "Ingeniera de Software con perfil híbrido en IA y Full Stack", en: "Software Engineer with a hybrid profile in AI and Full Stack" } as B,
+  location: "Surf Coast, Australia",
   email: "nataliacuadradohidalgo@gmail.com",
   phone: "+34 648 96 82 13",
   github: "https://github.com/naattiiiiiiiii/",
@@ -42,12 +42,14 @@ export const skills = {
     title: { es: "Full Stack", en: "Full Stack" } as B,
     description: { es: "Desarrollo web completo", en: "Full-stack web development" } as B,
     items: [
-      { name: "Next.js",      level: { es: "Avanzado", en: "Advanced" } as B },
-      { name: "React",        level: { es: "Avanzado", en: "Advanced" } as B },
-      { name: "TypeScript",   level: { es: "Avanzado", en: "Advanced" } as B },
-      { name: "Node.js",      level: { es: "Intermedio", en: "Intermediate" } as B },
-      { name: "Tailwind CSS", level: { es: "Avanzado", en: "Advanced" } as B },
-      { name: "REST APIs",    level: { es: "Intermedio", en: "Intermediate" } as B },
+      { name: "Next.js 15",        level: { es: "Avanzado", en: "Advanced" } as B },
+      { name: "React 19",          level: { es: "Avanzado", en: "Advanced" } as B },
+      { name: "TypeScript",        level: { es: "Avanzado", en: "Advanced" } as B },
+      { name: "Node.js / FastAPI", level: { es: "Avanzado", en: "Advanced" } as B },
+      { name: "Tailwind CSS",      level: { es: "Avanzado", en: "Advanced" } as B },
+      { name: "Vue 3",             level: { es: "Intermedio", en: "Intermediate" } as B },
+      { name: "React Native/Expo", level: { es: "Intermedio", en: "Intermediate" } as B },
+      { name: "Framer Motion",     level: { es: "Intermedio", en: "Intermediate" } as B },
     ],
   },
   aiData: {
@@ -57,9 +59,11 @@ export const skills = {
       { name: "Python",                    level: { es: "Avanzado", en: "Advanced" } as B },
       { name: "LangChain / LangGraph",     level: { es: "Avanzado", en: "Advanced" } as B },
       { name: "RAG / ChromaDB / pgvector", level: { es: "Avanzado", en: "Advanced" } as B },
+      { name: "LLM Integration",           level: { es: "Avanzado", en: "Advanced" } as B },
       { name: "Machine Learning",          level: { es: "Intermedio", en: "Intermediate" } as B },
       { name: "Deep Learning (CNN/DNN)",   level: { es: "Intermedio", en: "Intermediate" } as B },
-      { name: "NLP",                       level: { es: "Intermedio", en: "Intermediate" } as B },
+      { name: "NLP / Computer Vision",     level: { es: "Intermedio", en: "Intermediate" } as B },
+      { name: "HuggingFace",              level: { es: "Intermedio", en: "Intermediate" } as B },
       { name: "Pandas / NumPy",            level: { es: "Intermedio", en: "Intermediate" } as B },
       { name: "Spark / Hadoop",            level: { es: "Básico", en: "Basic" } as B },
     ],
@@ -68,18 +72,31 @@ export const skills = {
     title: { es: "Herramientas", en: "Tools" } as B,
     description: { es: "DevOps y productividad", en: "DevOps & productivity" } as B,
     items: [
-      { name: "Git / GitHub",          level: { es: "Avanzado", en: "Advanced" } as B },
-      { name: "Docker",                level: { es: "Intermedio", en: "Intermediate" } as B },
-      { name: "Vercel / Cloudflare",   level: { es: "Avanzado", en: "Advanced" } as B },
-      { name: "PostgreSQL / Redis",    level: { es: "Avanzado", en: "Advanced" } as B },
-      { name: "Prisma ORM",            level: { es: "Avanzado", en: "Advanced" } as B },
+      { name: "Git / GitHub / CI-CD",    level: { es: "Avanzado", en: "Advanced" } as B },
+      { name: "Docker",                  level: { es: "Intermedio", en: "Intermediate" } as B },
+      { name: "Vercel / Cloudflare WAF", level: { es: "Avanzado", en: "Advanced" } as B },
+      { name: "PostgreSQL / Redis",      level: { es: "Avanzado", en: "Advanced" } as B },
+      { name: "Prisma ORM / Supabase",   level: { es: "Avanzado", en: "Advanced" } as B },
       { name: "Stripe / Stripe Connect", level: { es: "Intermedio", en: "Intermediate" } as B },
+      { name: "NextAuth v5 / OAuth",     level: { es: "Avanzado", en: "Advanced" } as B },
     ],
   },
 }
 
 // Experiencia laboral
 export const experiences = [
+  {
+    company: "socaity.ai",
+    role: { es: "AI Engineer", en: "Artificial Intelligence Engineer" } as B,
+    period: { es: "May 2026 - Presente", en: "May 2026 - Present" } as B,
+    type: { es: "Remoto", en: "Remote" } as B,
+    description: {
+      es: "Construcción y despliegue de agentes de IA inteligentes para automatización B2B y flujos de cualificación de clientes. Diseño de arquitecturas multi-agente con LangGraph state machines y pipelines RAG avanzados. Integración de múltiples proveedores LLM (Gemini, Claude, Llama) con guardrails y validación de seguridad.",
+      en: "Building and deploying intelligent AI agents for B2B automation and client qualification workflows. Designing multi-agent architectures with LangGraph state machines and advanced RAG pipelines. Integrating multiple LLM providers (Gemini, Claude, Llama) with guardrails and safety validation.",
+    } as B,
+    tech: ["Python", "LangChain", "LangGraph", "RAG", "Gemini", "Claude", "Llama", "FastAPI", "Guardrails"],
+    featured: true,
+  },
   {
     company: "Inkubes",
     role: { es: "Freelance Full Stack Developer & AI Solutions", en: "Freelance Full Stack Developer & AI Solutions" } as B,
@@ -95,7 +112,7 @@ export const experiences = [
   {
     company: "Consorcio Emergencias Lanzarote",
     role: { es: "Coordinadora Tecnológica y de Desarrollo", en: "Technology & Development Coordinator" } as B,
-    period: { es: "Mar 2026 - Presente", en: "Mar 2026 - Present" } as B,
+    period: { es: "Mar 2026 - May 2026", en: "Mar 2026 - May 2026" } as B,
     type: { es: "Voluntaria", en: "Volunteer" } as B,
     description: {
       es: "Coordinación del equipo de desarrollo de ACESLAN, app oficial para el Consorcio de Seguridad y Emergencias de Lanzarote (colaboración con Cabildo de Lanzarote). Nexo estratégico entre el equipo técnico y los operativos de emergencias. Gestión de repositorios GitHub, revisión de PRs, planificación de sprints y definición de propuestas de funcionalidades de IA.",
